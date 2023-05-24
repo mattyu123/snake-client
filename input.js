@@ -1,4 +1,5 @@
-let conn 
+//stores the active TCP object 
+let connection;
 
 //handle user input to terminate program if user uses control + c, and console.logs whatever key is passed through the program 
 const handleUserInput = function (key) {
@@ -6,22 +7,22 @@ const handleUserInput = function (key) {
     process.exit();
   }  
   if (key === 'w') {
-    console.log("You moved up")
+    connection.write("Move: up")
   }
   if (key === 'd') {
-    console.log("You moved right")
-  }
-  if (key === 's') {
-    console.log("You moved down")
+    connection.write("Move: right")
   }
   if (key === 'a') {
-    console.log("You moved left")
+    connection.write("Move: left")
+  }
+  if (key === 's') {
+    connection.write("Move: down")
   }
 };
 
 // setup interface to handle user input from stdin
-const setupInput = function (connection) {
-  const conn = connection;
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
