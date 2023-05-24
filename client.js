@@ -1,12 +1,14 @@
 const net = require("net");
+const {IP,PORT} = require("./constants.js")
+
 
 const connect = function() {
   const conn = net.createConnection({
-    host: "localhost",
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
-  // interpret incoming data as text
+  //Interpret incoming data as text
   conn.setEncoding("utf8");
 
   //Lets the client side know that they have successfully connected to the server 

@@ -1,3 +1,6 @@
+//get the required key
+const {movementKeys} = require("./constants.js")
+
 //stores the active TCP object 
 let connection;
 
@@ -6,17 +9,10 @@ const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   }  
-  if (key === 'w') {
-    connection.write("Move: up")
-  }
-  if (key === 'd') {
-    connection.write("Move: right")
-  }
-  if (key === 'a') {
-    connection.write("Move: left")
-  }
-  if (key === 's') {
-    connection.write("Move: down")
+
+  //checks for the key in the input, and writes the approproate value to the server
+  if(key) {
+    connection.write(movementKeys[key]);
   }
 };
 
