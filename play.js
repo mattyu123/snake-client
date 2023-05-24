@@ -7,5 +7,5 @@ const net = require("net");
 console.log("Connecting ...");
 
 //calling the functions to run 
-connect();
-setupInput();
+const conn = connect()
+setupInput(conn);
