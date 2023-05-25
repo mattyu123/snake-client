@@ -1,5 +1,5 @@
 const net = require("net");
-const {IP,PORT} = require("./constants.js")
+const {IP,PORT} = require("./constants.js");
 
 
 const connect = function() {
@@ -11,10 +11,10 @@ const connect = function() {
   //Interpret incoming data as text
   conn.setEncoding("utf8");
 
-  //Lets the client side know that they have successfully connected to the server 
+  //Lets the client side know that they have successfully connected to the server
   conn.on("connect", () => {
-    console.log("A successful connection has been made to the server")
-  })
+    console.log("A successful connection has been made to the server");
+  });
 
   //Name for the snake is shown on the server and moves the snake up one spot on the board
   conn.on("connect", () => {
@@ -26,7 +26,7 @@ const connect = function() {
   });
 
   return conn;
-}
+};
 
 module.exports = {
   connect,
